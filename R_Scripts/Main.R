@@ -1,0 +1,36 @@
+library(readr)
+
+
+X2_Ethereum <- read_delim("Data/2_Ethereum.csv", ";", escape_double = FALSE)
+X3_XRP <- read_delim("Data/3_XRP.csv", ";", escape_double = FALSE)
+X4_Bitcoin-Cash <- read_delim("Data/4_Bitcoin-Cash.csv", ";", escape_double = FALSE)
+X5_Bitcoin-SV <- read_delim("Data/4_Bitcoin-SV.csv", ";", escape_double = FALSE)
+X6_Litecoin <- read_delim("Data/6_Litecoin.csv", ";", escape_double = FALSE)
+X7_Tether <- read_delim("Data/7_Tether.csv", ";", escape_double = FALSE)
+X8_EOS <- read_delim("Data/8_EOS.csv", ";", escape_double = FALSE)
+X9_Binance-Coin <- read_delim("Data/9_Binance-Coin.csv", ";", escape_double = FALSE)
+X12_Monero <- read_delim("Data/12_Monero.csv",";", escape_double = FALSE, trim_ws = TRUE)
+X13_TRON  <- read_delim("Data/13_TRON.csv",";", escape_double = FALSE, trim_ws = TRUE)
+X14_Stellar  <- read_delim("Data/14_Stellar.csv",";", escape_double = FALSE, trim_ws = TRUE)
+X15_EthereumClassic <- read_delim("Data/15_Ethereum-Classic.csv",";", escape_double = FALSE, trim_ws = TRUE)
+X16_Chainlink <- read_delim("Data/16_Chainlink.csv", ";", escape_double = FALSE)
+X17_Dash <- read_delim("Data/17_Dash.csv", ";", escape_double = FALSE)
+X18_Huobi-Token <- read_delim("Data/18_Huobi-Token.csv", ";", escape_double = FALSE)
+X19_UNUS-SED-LEO <- read_delim("Data/19_UNUS-SED-LEO.csv", ";", escape_double = FALSE)
+X20_Neo <- read_delim("Data/20_Neo.csv", ";", escape_double = FALSE)
+X21_Cosmos <- read_delim("Data/21_Cosmos.csv", ";", escape_double = FALSE)
+X22_IOTA <- read_delim("Data/21_IOTA.csv", ";", escape_double = FALSE)
+X23_Crypto.com-Coin <- read_delim("Data/23_Crypto.com-Coin.csv", ";", escape_double = FALSE)
+X24_HedgeTrade <- read_delim("Data/24_HedgeTrade.csv", ";", escape_double = FALSE)
+X25_Zcash <- read_delim("Data/25_Zcash.csv", ";", escape_double = FALSE)
+X26_NEM <- read_delim("Data/26_NEM.csv", ";", escape_double = FALSE)
+X27_Maker <- read_delim("Data/27_Maker.csv", ";", escape_double = FALSE)
+X28_Ontology <- read_delim("Data/28_Ontology.csv", ";", escape_double = FALSE)
+X29_KickToken <- read_delim("Data/29_KickToken.csv", ";", escape_double = FALSE)
+X30_USD-Coin <- read_delim("Data/30_USD-Coin.csv", ";", escape_double = FALSE)
+X31_Dogecoin <- read_delim("Data/31_Dogecoin.csv", ";", escape_double = FALSE)
+
+
+
+
+View(X15_EthereumClassic)
