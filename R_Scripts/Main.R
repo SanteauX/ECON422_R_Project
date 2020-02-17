@@ -1,5 +1,5 @@
 library(readr)
-
+#install.packages("lubridate")
 
 X2_Ethereum <- read_delim("Data/2_Ethereum.csv", ";", escape_double = FALSE, trim_ws = TRUE)
 X3_XRP <- read_delim("Data/3_XRP.csv", ";", escape_double = FALSE, trim_ws = TRUE)
@@ -30,6 +30,8 @@ X29_KickToken <- read_delim("Data/29_KickToken.csv", ";", escape_double = FALSE,
 X30_USD_Coin <- read_delim("Data/30_USD-Coin.csv", ";", escape_double = FALSE, trim_ws = TRUE)
 X31_Dogecoin <- read_delim("Data/31_Dogecoin.csv", ";", escape_double = FALSE, trim_ws = TRUE)
 
+time <- c("15/11/2016", "5/2/2020")
+ymd(time)
 
 
 View(X15_EthereumClassic)
