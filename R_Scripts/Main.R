@@ -1,6 +1,9 @@
+library(prophet) ##For forcasting
+library(ggplot2)
+library(lubridate)
 library(readr)
-#install.packages("lubridate")
 
+X1_Bitcoin <- read_delim("Data/1_Bitcoin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 X2_Ethereum <- read_delim("Data/2_Ethereum.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 X3_XRP <- read_delim("Data/3_XRP.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 X4_Bitcoin_Cash <- read_delim("Data/4_Bitcoin-Cash.csv", ",", escape_double = FALSE)
@@ -30,10 +33,21 @@ X26_Zcash <- read_delim("Data/26_Zcash.csv", ",", escape_double = FALSE, trim_ws
 X27_Ontology <- read_delim("Data/27_Ontology.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 X28_NEM <- read_delim("Data/26_NEM.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 X29_USD_Coin <- read_delim("Data/29_USD-Coin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X30_USD_Coin <- read_delim("Data/30_Basic-Attention-Token.csv", ",", escape_double = FALSE, trim_ws = TRUE)
+X30_BasicAttentionToken <- read_delim("Data/30_Basic-Attention-Token.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 X31_Dogecoin <- read_delim("Data/31_Dogecoin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 
 time <- c("15/11/2016", "5/2/2020")
+
+csvs = c(X1_Bitcoin, X2_Ethereum, X3_XRP, X4_Bitcoin_Cash, X5_Bitcoin_SV, X6_Bitcoin_SV,
+         X7_Litecoin, X8_EOS, X9_Binance_Coin, X10_Tezos, X11_ChainLink, X12_Cardano,
+         X13_Monero, X14_Stellar, X15_TRON, X16_Huobi_Token, X17_UNUS_SED_LEO, 
+         X18_EthereumClassic, X19_Neo, X20_Dash, X21_CryptoCoin, X22_HedgeTrade,
+         X23_Cosmos, X24_IOTA, X25_Maker, X26_Zcash, X27_Ontology, X28_NEM, 
+         X29_USD_Coin, X30_BasicAttentionToken, X31_Dogecoin)
+
 ymd(time)
 
+head(X1_Bitcoin)
+str(X1_Bitcoin)
 
+ggplot(data = X1_Bitcoin aes(x= X1_Bitcoin$Date, y= X1_Bitcoin$"Market Cap"))
