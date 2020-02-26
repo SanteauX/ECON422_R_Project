@@ -1,0 +1,28 @@
+#Libraries
+library(prophet) ##For forcasting
+library(ggplot2)
+library(lubridate)
+
+#Cryptocurrency data
+data <- read.csv2(file.choose(), header = T)
+str(data)
+head(data)
+data$Date <- dmy(data$Date)
+
+#Plotting the graphs
+
+#Closing prices vs Time
+qplot(Date, Closes.at., data = data, main = 'Tether Closing prices over time') +
+  xlab('Date') + ylab('Closing Prices')
+
+#Opening prices vs Time
+qplot(Date, Opens.at., data = data, main = 'Tether Opening prices over time') +
+  xlab('Date') + ylab('Opening Prices')
+
+#Volume vs Time
+qplot(Date, Volume.Traded., data = data, main = 'Tether Volume over time') +
+  xlab('Date') + ylab('Volume')
+
+#Market Cap vs Time
+qplot(Date, Market.Cap., data = data, main = 'Tether Market Cap over time',) +
+  xlab('Date') + ylab('Market Cap')
