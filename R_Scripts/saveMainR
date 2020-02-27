@@ -4,6 +4,8 @@ library(lubridate)
 library(readr)
 
 X1_Bitcoin <- read_delim("Data/1_Bitcoin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
+
+
 X2_Ethereum <- read_delim("Data/2_Ethereum.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 X3_XRP <- read_delim("Data/3_XRP.csv", ",", escape_double = FALSE, trim_ws = TRUE)
 X4_Bitcoin_Cash <- read_delim("Data/4_Bitcoin_Cash.csv", ",", escape_double = FALSE)
@@ -46,11 +48,9 @@ csvs = c(X1_Bitcoin, X2_Ethereum, X3_XRP, X4_Bitcoin_Cash, X5_Bitcoin_SV, X6_Bit
          X29_USD_Coin, X30_BasicAttentionToken, X31_Dogecoin)
 
 ymd(time)
-options(scipen=10000)
 
 ggplot(data = X1_Bitcoin, mapping = aes(x = X1_Bitcoin$Date, group=1)) + 
-  geom_line(aes(y = X1_Bitcoin$MarketCap, colour="blue", size=1))+ 
-  geom_line(aes(y = X1_Bitcoin$VolumeTraded, colour="yellow", size=1))
-
+  geom_line(aes(y = X1_Bitcoin$MarketCap, colour="blue", size=1.5))+ 
+  geom_line(aes(y = X1_Bitcoin$VolumeTraded, colour="yellow", size=1.5))
 
 
