@@ -2,55 +2,43 @@ library(prophet) ##For forcasting
 library(ggplot2)
 library(lubridate)
 library(readr)
+library(quantmod)
 
-X1_Bitcoin <- read_delim("Data/1_Bitcoin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X2_Ethereum <- read_delim("Data/2_Ethereum.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X3_XRP <- read_delim("Data/3_XRP.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X4_Bitcoin_Cash <- read_delim("Data/4_Bitcoin_Cash.csv", ",", escape_double = FALSE)
-X5_Tether <- read_delim("Data/5_Tether.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X6_Bitcoin_SV <- read_delim("Data/6_Bitcoin_SV.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X7_Litecoin <- read_delim("Data/7_Litecoin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X7_Tether <- read_delim("Data/7_Tether.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X8_EOS <- read_delim("Data/8_EOS.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X9_Binance_Coin <- read_delim("Data/9_Binance_Coin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X10_Tezos <- read_delim("Data/10_Tezos.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X11_ChainLink <-read_delim("Data/11_Chainlink.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X12_Cardano <- read_delim("Data/12_Cardano.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X13_Monero <- read_delim("Data/13_Monero.csv",",", escape_double = FALSE, trim_ws = TRUE)
-X14_Stellar  <- read_delim("Data/14_Stellar.csv",",", escape_double = FALSE, trim_ws = TRUE)
-X15_TRON  <- read_delim("Data/15_TRON.csv",",", escape_double = FALSE, trim_ws = TRUE)
-X16_Huobi_Token <- read_delim("Data/16_Huobi_Token.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X17_UNUS_SED_LEO <- read_delim("Data/17_UNUS_SED_LEO.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X18_EthereumClassic <- read_delim("Data/18_Ethereum_Classic.csv",",", escape_double = FALSE, trim_ws = TRUE)
-X19_Neo <- read_delim("Data/19_Neo.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X20_Dash <- read_delim("Data/20_Dash.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X21_CryptoCoin <- read_delim("Data/21_Crypto.com-Coin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X22_HedgeTrade <- read_delim("Data/22_HedgeTrade.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X23_Cosmos <- read_delim("Data/23_Cosmos.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X24_IOTA <- read_delim("Data/24_IOTA.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X25_Maker <- read_delim("Data/25_Maker.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X26_Zcash <- read_delim("Data/26_Zcash.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X27_Ontology <- read_delim("Data/27_Ontology.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X28_NEM <- read_delim("Data/26_NEM.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X29_USD_Coin <- read_delim("Data/29_USD_Coin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X30_BasicAttentionToken <- read_delim("Data/30_Basic_Attention_Token.csv", ",", escape_double = FALSE, trim_ws = TRUE)
-X31_Dogecoin <- read_delim("Data/31_Dogecoin.csv", ",", escape_double = FALSE, trim_ws = TRUE)
+X1_Bitcoin <- read_csv("10 first/1_Bitcoin.csv")
+X2_Ethereum <- read_csv("10 first/2_Ethereum.csv")
+X3_XRP <- read_csv("10 first/3_XRP.csv")
+X4_Bitcoin_Cash <- read_csv("Data/4_Bitcoin_Cash.csv")
+X5_Tether <- read_csv("10 first/5_Tether.csv")
+X6_BitcoinSV <- read_csv("10 first/6_Bitcoin SV.csv")
+X7_Litecoin <- read_csv("10 first/7_Litecoin.csv")
+X8_EOS <- read_csv("10 first/8_EOS.csv")
+X9_BinanceCoin <- read_csv("10 first/9_Binance Coin.csv")
+X10_Tezos <- read_csv("10 first/10_Tezos.csv")
+X11_Chainlink <- read_csv("10 first/11_Chainlink.csv")
+X12_Cardano <- read_csv("Data/12_Cardano.csv")
+X13_Monero <- read_csv("Data/13_Monero.csv")
+X14_Stellar <- read_csv("Data/14_Stellar.csv")
+X15_TRON <- read_csv("Data/15_TRON.csv")
+X19_Neo <- read_csv("Data/19_Neo.csv")
+X20_Dash <- read_csv("Data/20_Dash.csv")
 
-time <- c("15/11/2016", "5/2/2020")
+btc_mc <- X1_Bitcoin$MarketCap[1:454]
+eth_mc <- X2_Ethereum$MarketCap[1:454]
+xrp_mc <- X3_XRP$MarketCap[1:454]
+bcc_mc <- X4_Bitcoin_Cash$MarketCap[1:454]
+usdt_mc <- X5_Tether$MarketCap[1:454]
+bsv_mc <- X6_BitcoinSV$MarketCap[1:454]
+ltc_mc <- X7_Litecoin$MarketCap[1:454]
+eos_mc <- X8_EOS$MarketCap[1:454]
+bcb_mc <- X9_BinanceCoin$MarketCap[1:454]
+xtz_mc <- X10_Tezos$MarketCap[1:454]
+xlm_mc <- X14_Stellar$MarketCap[1:454]
+trx_mc <- X15_TRON$MarketCap[1:454]
+neo_mc <- X19_Neo$MarketCap[1:454]
+dash_mc <- X20_Dash$MarketCap[1:454]
 
-csvs = c(X1_Bitcoin, X2_Ethereum, X3_XRP, X4_Bitcoin_Cash, X5_Bitcoin_SV, X6_Bitcoin_SV,
-         X7_Litecoin, X8_EOS, X9_Binance_Coin, X10_Tezos, X11_ChainLink, X12_Cardano,
-         X13_Monero, X14_Stellar, X15_TRON, X16_Huobi_Token, X17_UNUS_SED_LEO, 
-         X18_EthereumClassic, X19_Neo, X20_Dash, X21_CryptoCoin, X22_HedgeTrade,
-         X23_Cosmos, X24_IOTA, X25_Maker, X26_Zcash, X27_Ontology, X28_NEM, 
-         X29_USD_Coin, X30_BasicAttentionToken, X31_Dogecoin)
-
-ymd(time)
-options(scipen=10000)
-
-ggplot(data = X1_Bitcoin, mapping = aes(x = X1_Bitcoin$Date, group=1)) + 
-  geom_line(aes(y = X1_Bitcoin$MarketCap, colour="blue", size=1))+ 
-  geom_line(aes(y = X1_Bitcoin$VolumeTraded, colour="yellow", size=1))
-
-
+stacc <- data.frame(btc_mc, eth_mc, xrp_mc, bcc_mc, usdt_mc, bsv_mc, ltc_mc, eos_mc, bcb_mc, xtz_mc, xlm_mc, trx_mc, neo_mc, dash_mc)
+View(stacc)
+covmatrix = matrix(c(cov(stacc)), nrow=14, ncol=14)
+covmatrix
 
