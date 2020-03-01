@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583035788104.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7A40BC2F",
+    "lastKnownWriteTime" : 2540293463960,
+    "last_content_update" : 1583035788104,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "BA495314",
+        "caption" : "volume_traded_comatrix",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=volume_traded_comatrix&cache_key=BA495314",
+        "displayedObservations" : 852,
+        "environment" : "",
+        "expression" : "volume_traded_comatrix",
+        "object" : "volume_traded_comatrix",
+        "preview" : 0,
+        "totalObservations" : 852,
+        "variables" : 13
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

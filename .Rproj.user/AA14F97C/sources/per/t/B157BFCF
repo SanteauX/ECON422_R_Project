@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583035650369.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3271532929",
+    "id" : "B157BFCF",
+    "lastKnownWriteTime" : 1583037748,
+    "last_content_update" : 1583037748048,
+    "path" : "D:/Desktop/ECON422_R_Project/covMatrix.R",
+    "project_path" : "covMatrix.R",
+    "properties" : {
+        "cursorPosition" : "68,12",
+        "scrollLine" : "52"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583030409293.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1388179205",
+    "id" : "A3AB3081",
+    "lastKnownWriteTime" : 1583030746,
+    "last_content_update" : 1583030746666,
+    "path" : "D:/Desktop/ECON422_R_Project/R_Scripts/Main.R",
+    "project_path" : "R_Scripts/Main.R",
+    "properties" : {
+        "cursorPosition" : "16,54",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

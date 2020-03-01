@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583034505766.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2510763773",
+    "id" : "8161BBE9",
+    "lastKnownWriteTime" : 1583037748,
+    "last_content_update" : 1583037748028,
+    "path" : "D:/Desktop/ECON422_R_Project/R_Scripts/PlotCryptoScript.R",
+    "project_path" : "R_Scripts/PlotCryptoScript.R",
+    "properties" : {
+        "cursorPosition" : "21,39",
+        "scrollLine" : "15",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
