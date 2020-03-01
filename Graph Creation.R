@@ -10,7 +10,9 @@ library(lubridate)
 #Scientific to numerical notation
 options(scipen = 999)
 
-data <- Monero #Coin file
+Bitcoin <- read_csv("Data/1_Bitcoin.csv")
+
+data <- Bitcoin #Coin file
 data$Date <- dmy(data$Date)
 
 #Normal portion
