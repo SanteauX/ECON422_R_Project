@@ -4,7 +4,7 @@ library(lubridate)
 library(readr)
 library(quantmod)
 
-X1_Bitcoin <- read_csv("10 first/1_Bitcoin.csv")
+X1_Bitcoin <- read_csv("/Users/hugo/Desktop/testClassificationR/CSV_Updated/1_Bitcoin.csv")
 X2_Ethereum <- read_csv("10 first/2_Ethereum.csv")
 X3_XRP <- read_csv("10 first/3_XRP.csv")
 X4_Bitcoin_Cash <- read_csv("Data/4_Bitcoin_Cash.csv")
