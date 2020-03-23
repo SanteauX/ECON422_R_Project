@@ -42,26 +42,14 @@ X39_Bitcoin_Gold <- read_csv('Coins/39_Bitcoin_Gold.csv')
 X40_ICON <- read_csv('Coins/40_ICON.csv')
 X41_Hedera_Hashgraph <- read_csv('Coins/41_Hedera_Hashgraph.csv')
 
+var(X1_Bitcoin$VolumeTraded)
+vol_var <- c(var(X1_Bitcoin$VolumeTraded), var(X2_Ethereum$VolumeTraded), var(X3_XRP$VolumeTraded), var(X4_Bitcoin_Cash$VolumeTraded), var(X7_Litecoin$VolumeTraded), var(X8_EOS$VolumeTraded), var(X9_Binance_Coin$VolumeTraded), var(X10_Tezos$VolumeTraded))
+mc_var <- c(var(X1_Bitcoin$MarketCap), var(X2_Ethereum$MarketCap), var(X3_XRP$MarketCap), var(X4_Bitcoin_Cash$MarketCap), var(X7_Litecoin$MarketCap), var(X8_EOS$MarketCap), var(X9_Binance_Coin$MarketCap), var(X10_Tezos$MarketCap))
 
-var_in_time <- function(arraylist){
-  var = 0
-  for(i in arraylist-1){
-    val <- (arraylist[i]-arraylist[i+1])**2
-    var = var + val
-  }
-  return(var)
-}
+var_time_vol <- c()
+var_time_mc <- c()
 
+vr <- diff(X1_Bitcoin$VolumeTraded)^2
 
-vol <- c(X1_Bitcoin$VolumeTraded, X2_Ethereum$VolumeTraded, X3_XRP$VolumeTraded, X4_Bitcoin_Cash$VolumeTraded, X7_Litecoin$VolumeTraded, X8_EOS$VolumeTraded, X9_Binance_Coin$VolumeTraded, X10_Tezos$VolumeTraded)
-mc <- c(X1_Bitcoin$MarketCap, X2_Ethereum$MarketCap, X3_XRP$MarketCap, X4_Bitcoin_Cash$MarketCap, X7_Litecoin$MarketCap, X8_EOS$MarketCap, X9_Binance_Coin$MarketCap, X10_Tezos$MarketCap)
-
-
-  
-  
-
-
-
-
-
+vr
 
