@@ -42,15 +42,20 @@ X39_Bitcoin_Gold <- read_csv('Coins/39_Bitcoin_Gold.csv')
 X40_ICON <- read_csv('Coins/40_ICON.csv')
 X41_Hedera_Hashgraph <- read_csv('Coins/41_Hedera_Hashgraph.csv')
 
-vol <- c(X1_Bitcoin$VolumeTraded, X2_Ethereum$VolumeTraded, X3_XRP$VolumeTraded, X4_Bitcoin_Cash$VolumeTraded, X7_Litecoin$VolumeTraded, X8_EOS$VolumeTraded, X9_Binance_Coin$VolumeTraded, X10_Tezos$VolumeTraded)
 
+var_in_time <- function(arraylist){
+  var = 0
+  for(i in arraylist-1){
+    val <- (arraylist[i]-arraylist[i+1])**2
+    var = var + val
+  }
+  return(var)
+}
+
+
+vol <- c(X1_Bitcoin$VolumeTraded, X2_Ethereum$VolumeTraded, X3_XRP$VolumeTraded, X4_Bitcoin_Cash$VolumeTraded, X7_Litecoin$VolumeTraded, X8_EOS$VolumeTraded, X9_Binance_Coin$VolumeTraded, X10_Tezos$VolumeTraded)
 mc <- c(X1_Bitcoin$MarketCap, X2_Ethereum$MarketCap, X3_XRP$MarketCap, X4_Bitcoin_Cash$MarketCap, X7_Litecoin$MarketCap, X8_EOS$MarketCap, X9_Binance_Coin$MarketCap, X10_Tezos$MarketCap)
 
-for (i in vol)
-{
-  var.add(var(vol[i])
-              
-}
 
   
   
