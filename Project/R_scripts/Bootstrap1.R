@@ -70,7 +70,7 @@ cor(Z1,Z2)
 ########What's the value of Pi##################
 ################################################
 Pi=function(n)
-{
+{fn
   x=runif(n,-1,1)
   y=runif(n,-1,1)
   z=ifelse(sqrt(x^2+y^2)<=1,1,0)
