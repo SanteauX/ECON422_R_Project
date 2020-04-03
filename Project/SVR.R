@@ -1,4 +1,11 @@
 library(readr)
+library(ggplot2)
+library(lubridate)
+
+str(data)
+head(data)
+data$Date <- dmy(data$Date)
+
 
 X1_Bitcoin <- read_csv('Coins/1_Bitcoin.csv')
 X2_Ethereum <- read_csv('Coins/2_Ethereum.csv')
@@ -63,8 +70,6 @@ colnames(predictor_matrix) <- c("btc_vt", "eth_vt", "xrp_vt", "bcc_vt", "ltc_vt"
 colnames(volt) <- c("btc_vt", "eth_vt", "xrp_vt", "bcc_vt", "ltc_vt", "eos_vt","bnb_vt", "tron_vt", "tether_mc")
 colnames(marketc) <-c("btc_mc", "eth_mc", "xrp_mc", "bcc_mc", "ltc_mc", "eos_mc","bnb_mc", "tron_mc", "tether_mc")
 
-linear_model <- lm(X5_Tether$MarketCap[1:919] ~ predictor_matrix)
-
 #################
 #################
 #################
@@ -77,50 +82,16 @@ summary(linear_modelmarketc)
 pairs(cbind(volt, X5_Tether$MarketCap[1:919]), upper.panel = NULL)
 pairs(cbind(marketc, X5_Tether$MarketCap[1:919]), upper.panel = NULL)
 
-head(predictor_matrix)
 
 #VOLT
 vol_t <- cbind(X1_Bitcoin$VolumeTraded[1:919], X2_Ethereum$VolumeTraded[1:919], X3_XRP$VolumeTraded[1:919], X4_Bitcoin_Cash$VolumeTraded[1:919], X7_Litecoin$VolumeTraded[1:919], X8_EOS$VolumeTraded[1:919], X9_Binance_Coin$VolumeTraded[1:919], X15_TRON$VolumeTraded[1:919])
 volt <- (cbind(vol_t, X5_Tether$MarketCap[1:919]))
 colnames(volt) <- c("btc_vt", "eth_vt", "xrp_vt", "bcc_vt", "ltc_vt", "eos_vt","bnb_vt", "tron_vt", "tether_mc")
 
-# Color
-my_cols <- c("#E7B800", "#FC4E07", "#DAF7A6", "#FFC300", "#FF5733", "#C70039", "#900C3F", "#581845", "#000000")  
-pairs(volt, pch = 1,
-      col = my_cols,
-      upper.panel = NULL)
+head(predictor_matrix)
 
 
-# Customize lower panel
-lowerpannel<-function(x, y){
-  points(x,y, pch = 1, col = my_cols)
-}
-
-# Correlation panel
-panelcor <- function(x, y){
-  usr <- par("usr"); on.exit(par(usr))
-  par(usr = c(0, 1, 0, 1))
-  r <- round(cor(x, y), digits=2)
-  txt <- paste0("R = ", r)
-  cex.cor <- 0.8/strwidth(txt)
-  text(0.5, 0.5, txt, cex = cex.cor * r)
-}
-
-# Create the plots
-pairs(volt, 
-      upper.panel = panelcor,
-      lower.panel = lowerpannel)
-
-
-
-
-
-
-
-#####
-a <- c(1, 2, 3, 4, 5)
-b <- c(2, 4, 6, 8, 10)
-pairs(cbind(a,b ))
+###DATA FOR SVR###
 
 
 
