@@ -92,6 +92,8 @@ head(predictor_matrix)
 
 
 ###DATA FOR SVR###
+for( i in )
+x1 <- colmeans(volt)
 
 
 
