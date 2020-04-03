@@ -84,17 +84,17 @@ X32_Zcash_MC <- X32_Zcash$MarketCap[1:286]
 #Joining into a data.frame (Market Cap binding of first 286)
 
 data <- cbind(Date_Range, X1_BasicAttentionCoin_MC, X2_BinanceCoin_MC,
-                            X3_Bitcoin_MC, X4_BitcoinCash_MC, X5_BitcoinSV_MC,
-                            X6_Cardano_MC, X7_Chainlink_MC, X8_Cosmos_MC,
-                            X9_Crypto.comCoin_MC, X10_Dash_MC,
-                            X11_Dogecoin_MC, X12_EOS_MC, X13_Ethereum_MC,
-                            X14_EthereumClassic_MC, X15_HedgeTrade_MC,
-                            X16_HuobiToken_MC, X17_KickToken_MC,
-                            X18_Litecoin_MC, X19_Maker_MC, X20_Monero_MC,
-                            X21_NEM_MC, X22_Neo_MC, X23_OKB_MC,
-                            X24_Ontology_MC, X25_Stellar_MC, X26_Tether_MC,
-                            X27_Tezos_MC, X28_TRON_MC, X29_UNUSSEDLEO_MC,
-                            X30_USDCoin_MC, X31_XRP_MC, X32_Zcash_MC)
+              X3_Bitcoin_MC, X4_BitcoinCash_MC, X5_BitcoinSV_MC,
+              X6_Cardano_MC, X7_Chainlink_MC, X8_Cosmos_MC,
+              X9_Crypto.comCoin_MC, X10_Dash_MC,
+              X11_Dogecoin_MC, X12_EOS_MC, X13_Ethereum_MC,
+              X14_EthereumClassic_MC, X15_HedgeTrade_MC,
+              X16_HuobiToken_MC, X17_KickToken_MC,
+              X18_Litecoin_MC, X19_Maker_MC, X20_Monero_MC,
+              X21_NEM_MC, X22_Neo_MC, X23_OKB_MC,
+              X24_Ontology_MC, X25_Stellar_MC, X26_Tether_MC,
+              X27_Tezos_MC, X28_TRON_MC, X29_UNUSSEDLEO_MC,
+              X30_USDCoin_MC, X31_XRP_MC, X32_Zcash_MC)
 
 #SVR (First 286 Observations)
 regressor = svm(formula = X26_Tether_MC ~.,
@@ -119,14 +119,3 @@ plot(svr)
 
 #Random stuff
 Eos <- X12_EOS[1:286, ,drop = FALSE]
-
-                            
-
-
-
-
-
-
-
-
-
