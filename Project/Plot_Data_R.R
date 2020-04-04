@@ -69,7 +69,7 @@ linear_model <- lm(X5_Tether$MarketCap[1:919] ~ predictor_matrix)
 #################
 #################
 #################
-linear_modelvolt <- lm(X5_Tether$VolumeTraded[1:919] ~ volt)
+linear_modelvolt <- lm(X5_Tether$MarketCap[1:919] ~ volt)
 linear_modelmarketc <- lm(X5_Tether$MarketCap[1:919] ~ marketc)
 summary(linear_modelvolt)
 summary(linear_modelmarketc)
