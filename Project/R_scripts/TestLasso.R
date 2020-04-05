@@ -85,17 +85,20 @@ ridge_coef
 coef = data.table(lasso = lasso_coef, 
                   elastic_net = elastic_net_coef, 
                   ridge = ridge_coef)
-
-coef[, feature := names(ridge_coef)]
+coef
 
 to_plot = melt(coef, id.vars = "feature", variable.name = "model", value.name = "coefficient")
 
 
-
-
 ggplot(to_plot, aes(x=feature, y = coefficient, fill = model)) + coord_flip() + geom_bar(stat = "identity")
   facet_wrap( ~ model) + guides(fill = FALSE)
+  
+  
+ggplot(to_plot[grepl('mc', feature), ], aes(x = feature, y = coefficient, fill = model)) + coord_flip() +
+  geom_bar(stat="identity") + facet_wrap( ~ model) + guides(fill = FALSE)
 
+ggplot(to_plot[grepl('vt', feature), ], aes(x = feature, y = coefficient, fill = model)) + coord_flip() +
+  geom_bar(stat="identity") + facet_wrap( ~ model) + guides(fill = FALSE)
 
 
 

@@ -126,8 +126,10 @@ predict30_9BinanceCoinVT <- predict(svmodel, newdata=data.frame(day=range_30days
 svmodel <- svm(X5_Tether$MarketCap[1:869] ~ X4_Bitcoin_Cash$MarketCap[1:869] + X1_Bitcoin$MarketCap[1:869] + X7_Litecoin$MarketCap[1:869] +
                  X8_EOS$MarketCap[1:869] + X9_Binance_Coin$MarketCap[1:869]	+  X4_Bitcoin_Cash$VolumeTraded[1:869] + 
                  X1_Bitcoin$VolumeTraded[1:869] + X7_Litecoin$VolumeTraded[1:869] + X8_EOS$VolumeTraded[1:869] + 
-                 X9_Binance_Coin$VolumeTraded[1:869]	+ X11_Chainlink$VolumeTraded[1:869]	+ X2_Ethereum$VolumeTraded[1:869] +
+                 X9_Binance_Coin$VolumeTraded[1:869]	+ X2_Ethereum$VolumeTraded[1:869] +
                  X3_XRP$VolumeTraded[1:869], data=crypto, type="eps-regression",kernel="radial",cost=10000, gamma=10)
+
+svmodel
 
 predict30_X5Tether <- predict(svmodel, newdata = data.frame(X4BitcoinCashMC = predict30_4BitcoinCashMC, X4BitcoinCashVT = predict30_4BitcoinCashVT,
                                                             X3XRPVT = predict30_3XRPVT,X2EthereumVT = predict30_2EthereumVT,
