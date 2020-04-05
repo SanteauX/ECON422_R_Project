@@ -48,12 +48,20 @@ marketc <- cbind(X1_Bitcoin$MarketCap[1:860], X2_Ethereum$MarketCap[1:860], X3_X
 
 predictor_matrix <- cbind(volt, marketc)
 
+# FIT LASSO MODEL
 set.seed(10000)
-lasso_model = cv.glmnet(as.matrix(predictor_matrix), as.matrix(X5_Tether$MarketCap[1:860]), lambda = 10^seq(9, 6, length = 80), alpha = 1, )
-lasso_model $lambda.1se
+lasso_model <- cv.glmnet(as.matrix(predictor_matrix), as.matrix(X5_Tether$MarketCap[1:860]), lambda = 10^seq(9, 6, length = 80), alpha = 1, )
+
+lasso_model$lambda.1se
 plot(lasso_model)
 
+best_lambda <- lasso_model$lambda.1se
+lasso_coef <- lasso_model$glmnet.fit$beta[, lasso_model$glmnet.fit$lambda == best_lambda]
 
+
+# FIT ON ELASTIC
+set.seed(10000)
+en_lasso_model <- 
 
 x = model.matrix(X26_Tether_MC ~., data)[,-1]
 y = data$X26_Tether_MC
