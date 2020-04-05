@@ -13,3 +13,13 @@ dates <- seq(as.Date("2017-01-19"), length = nrow(Final_Tether), by = "days")
 Final_Tethter_xts <- xts::xts(x = Final_Tether[,7], order.by = dates)
 plot(Final_Tethter_xts)
 
+# Load data
+Short_Tether <- read_csv("Short_Tether.csv")
+Short_Tether <- Short_Tether[nrow(Short_Tether):1, ]
+
+dates <- seq(as.Date("2017-01-19"), length = nrow(Final_Tether), by = "days")
+
+#Creating time series (xts object) # par 7ème colonne par example
+Final_Tethter_xts <- xts::xts(x = Final_Tether[,7], order.by = dates)
+plot(Final_Tethter_xts)
+
