@@ -1,4 +1,6 @@
 library(readr)
+library(data.table)
+library(ggplot2)
 
 X1_Bitcoin <- read_csv('Coins/1_Bitcoin.csv')
 X2_Ethereum <- read_csv('Coins/2_Ethereum.csv')
@@ -43,31 +45,64 @@ X40_ICON <- read_csv('Coins/40_ICON.csv')
 X41_Hedera_Hashgraph <- read_csv('Coins/41_Hedera_Hashgraph.csv')
 
 
-volt <- cbind(X1_Bitcoin$VolumeTraded[1:860], X2_Ethereum$VolumeTraded[1:860], X3_XRP$VolumeTraded[1:860], X4_Bitcoin_Cash$VolumeTraded[1:860], X7_Litecoin$VolumeTraded[1:860], X8_EOS$VolumeTraded[1:860], X9_Binance_Coin$VolumeTraded[1:860], X15_TRON$VolumeTraded[1:860])
-marketc <- cbind(X1_Bitcoin$MarketCap[1:860], X2_Ethereum$MarketCap[1:860], X3_XRP$MarketCap[1:860], X4_Bitcoin_Cash$MarketCap[1:860], X7_Litecoin$MarketCap[1:860], X8_EOS$MarketCap[1:860], X9_Binance_Coin$MarketCap[1:860], X15_TRON$MarketCap[1:860])
+volt <- cbind(X1_Bitcoin$VolumeTraded[1:860], X2_Ethereum$VolumeTraded[1:860], X3_XRP$VolumeTraded[1:860], X4_Bitcoin_Cash$VolumeTraded[1:860],
+              X7_Litecoin$VolumeTraded[1:860], X8_EOS$VolumeTraded[1:860], X9_Binance_Coin$VolumeTraded[1:860], X15_TRON$VolumeTraded[1:860])
+marketc <- cbind(X1_Bitcoin$MarketCap[1:860], X2_Ethereum$MarketCap[1:860], X3_XRP$MarketCap[1:860], X4_Bitcoin_Cash$MarketCap[1:860],
+                 X7_Litecoin$MarketCap[1:860], X8_EOS$MarketCap[1:860], X9_Binance_Coin$MarketCap[1:860], X15_TRON$MarketCap[1:860])
 
 predictor_matrix <- cbind(volt, marketc)
+colnames(predictor_matrix) <- c("btc_vt", "eth_vt", "xrp_vt", "bcc_vt", "ltc_vt", "eos_vt","bnb_vt", "tron_vt",
+                                "btc_mc", "eth_mc", "xrp_mc", "bcc_mc", "ltc_mc", "eos_mc","bnb_mc", "tron_mc")
 
 # FIT LASSO MODEL
-set.seed(10000)
 lasso_model <- cv.glmnet(as.matrix(predictor_matrix), as.matrix(X5_Tether$MarketCap[1:860]), lambda = 10^seq(9, 6, length = 80), alpha = 1, )
-
-lasso_model$lambda.1se
 plot(lasso_model)
 
 best_lambda <- lasso_model$lambda.1se
 lasso_coef <- lasso_model$glmnet.fit$beta[, lasso_model$glmnet.fit$lambda == best_lambda]
+lasso_coef
+
+# FIT ON ELASTICNET MODEL
+elastic_net_model <- cv.glmnet(as.matrix(predictor_matrix), as.matrix(X5_Tether$MarketCap[1:860]), lambda = 10^seq(10, 6, length = 80), alpha = 0.5, )
+plot(elastic_net_model)
+
+best_lambda <- elastic_net_model$lambda.1se
+elastic_net_coef <- elastic_net_model$glmnet.fit$beta[, elastic_net_model$glmnet.fit$lambda == best_lambda]
+elastic_net_coef
+
+# FIT ON A RIDGE MODEL
+ridge_model <- cv.glmnet(as.matrix(predictor_matrix), as.matrix(X5_Tether$MarketCap[1:860]), lambda = 10^seq(12, 7, length = 80), alpha = 0, )
+plot(ridge_model)
+
+best_lambda <- ridge_model$lambda.1se
+ridge_coef <- ridge_model$glmnet.fit$beta[, ridge_model$glmnet.fit$lambda == best_lambda]
+ridge_coef
+
+#################################################
+
+# COMPARE COEFFICIENTS
+
+coef = data.table(lasso = lasso_coef, 
+                  elastic_net = elastic_net_coef, 
+                  ridge = ridge_coef)
+
+coef[, feature := names(ridge_coef)]
+
+to_plot = melt(coef, id.vars = "feature", variable.name = "model", value.name = "coefficient")
 
 
-# FIT ON ELASTIC
-set.seed(10000)
-en_lasso_model <- 
 
-x = model.matrix(X26_Tether_MC ~., data)[,-1]
-y = data$X26_Tether_MC
 
-par(mfrow = c(1, 2))
-fit_lasso = glmnet(x, y, alpha = 1)
-plot(fit_lasso)
-plot(fit_lasso, xvar = "lambda", label = TRUE)
+ggplot(to_plot, aes(x=feature, y = coefficient, fill = model)) + coord_flip() + geom_bar(stat = "identity")
+  facet_wrap( ~ model) + guides(fill = FALSE)
+
+
+
+
+
+
+
+
+
+
 
