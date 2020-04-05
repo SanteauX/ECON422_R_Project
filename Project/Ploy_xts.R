@@ -17,9 +17,9 @@ plot(Final_Tethter_xts)
 Short_Tether <- read_csv("Short_Tether.csv")
 Short_Tether <- Short_Tether[nrow(Short_Tether):1, ]
 
-dates <- seq(as.Date("2017-01-19"), length = nrow(Final_Tether), by = "days")
+dates <- seq(as.Date("2020-01-01"), length = nrow(Short_Tether), by = "days")
 
 #Creating time series (xts object) # par 7ème colonne par example
-Final_Tethter_xts <- xts::xts(x = Final_Tether[,7], order.by = dates)
-plot(Final_Tethter_xts)
+Short_Tethter_xts <- xts::xts(x = Short_Tether[,7], order.by = dates)
+plot(Short_Tethter_xts)
 

@@ -71,8 +71,6 @@ mc_var <- c(sqrt(var(X1_Bitcoin$MarketCap[1:30])), sqrt(var(X2_Ethereum$MarketCa
 #################
 colnames(predictor_matrix) <- c("btc_vt", "eth_vt", "xrp_vt", "bcc_vt", "ltc_vt", "eos_vt","bnb_vt", "tron_vt", "btc_mc", "eth_mc", "xrp_mc", "bcc_mc", "ltc_mc", "eos_mc","bnb_mc", "tron_mc")
 
-help(rnorm)
-help(runif)
 
 
 
