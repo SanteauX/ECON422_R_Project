@@ -2,6 +2,7 @@ library('e1071')
 
 crypto <- read_csv("~/Desktop/ECON422_R_Project/crypto.csv")
 crypto$day <- 1:869
+Final_Tether30Days <- read_csv("Data/Final_Tether30Days.csv")
 
 #Forecasting for next 30 days of 1Bitcoin
 
@@ -130,8 +131,30 @@ predict30_X5Tether
 time30 <- 1:30
 plot(time30, predict30_X5Tether)
 
-p <- ggplot() + geom_line(aes(time30, predict30_X5Tether)) + labs(title = "Tether's Market Cap Prediction", x = "days", y ="Market Cap")
+p <- ggplot(aes(x = time30) +
+  geom_line(aes(y = predict30_X5Tether), color = "darkred") 
+  + labs(title = "Tether's Market Cap Prediction", x = "days", y ="Market Cap"))
                           
 p
+
+e <- ggplot(economics, aes(x=date)) + geom_line(aes(y=psavert), color = "darkred") +
+  geom_line(aes(y=uempmed), color="steelblue", linetype = "twodash")
+
+e
+
+data <- data.frame(cbind(predict30_X5Tether,Final_Tether30Days$MarketCap[1:30] ))
+colnames(data) <- c("predicted", "real")
+
+g <- ggplot(data, aes(x=time30)) + 
+      geom_line(aes(y=data$predicted), color = "darkred") +
+      geom_line(aes(y=data$real), color="steelblue", linetype = "twodash")+
+      labs(title = "Tether's Market Cap Prediction", x = "days", y ="Market Cap")
+
+g
+
+
+
+
+
 
 
