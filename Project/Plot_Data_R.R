@@ -65,10 +65,6 @@ colnames(marketc) <-c("btc_mc", "eth_mc", "xrp_mc", "bcc_mc", "ltc_mc", "eos_mc"
 
 linear_model <- lm(X5_Tether$MarketCap[1:919] ~ predictor_matrix)
 
-#################
-#################
-#################
-#################
 linear_modelvolt <- lm(X5_Tether$MarketCap[1:919] ~ volt)
 linear_modelmarketc <- lm(X5_Tether$MarketCap[1:919] ~ marketc)
 summary(linear_modelvolt)
@@ -102,7 +98,7 @@ panelcor <- function(x, y){
 pairs(volt,upper.panel = panelcor, lower.panel = lowerpannel)
 
 #MKTC
-mkt_t <- cbind(X1_Bitcoin$MarketCap[1:919], X2_Ethereum$MarketCap[1:919], X3_XRP$MarketCap[1:919], X4_Bitcoin_Cash$MarketCap[1:919], X7_Litecoin$MarketCap[1:919], X8_EOS$MarketCap[1:919], X9_Binance_Coin$MarketCap[1:919])
+mkt_t <- cbind(X1_Bitcoin$MarketCap[1:919], X2_Ethereum$MarketCap[1:919], X3_XRP$MarketCap[1:919], X4_Bitcoin_Cash$MarketCap[1:919], X7_Litecoin$MarketCap[1:919],  X8_EOS$MarketCap[1:919],  X9_Binance_Coin$MarketCap[1:919])
 mkt <- (cbind(mkt_t, X5_Tether$MarketCap[1:919]))
 colnames(mkt) <- c("btc_mc", "eth_mc", "xrp_mc", "bcc_mc", "ltc_mc", "eos_mc","bnb_mc", "tether_mc")
 
