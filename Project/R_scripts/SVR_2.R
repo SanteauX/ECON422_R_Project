@@ -131,16 +131,6 @@ predict30_X5Tether
 time30 <- 1:30
 plot(time30, predict30_X5Tether)
 
-p <- ggplot(aes(x = time30) +
-  geom_line(aes(y = predict30_X5Tether), color = "darkred") 
-  + labs(title = "Tether's Market Cap Prediction", x = "days", y ="Market Cap"))
-                          
-p
-
-e <- ggplot(economics, aes(x=date)) + geom_line(aes(y=psavert), color = "darkred") +
-  geom_line(aes(y=uempmed), color="steelblue", linetype = "twodash")
-
-e
 
 data <- data.frame(cbind(predict30_X5Tether,Final_Tether30Days$MarketCap[1:30] ))
 colnames(data) <- c("predicted", "real")
@@ -152,9 +142,22 @@ g <- ggplot(data, aes(x=time30)) +
 
 g
 
+data <- data.frame(cbind(predict30_X5Tether,Final_Tether30Days$MarketCap[1:30] ))
+colnames(data) <- c("predicted", "real")
+
+data$real <- rev(data$real)
+
+for( i in 1:30){
+  data$real[i] = data$real[i]- 7471671
+}
 
 
 
 
+g <- ggplot(data, aes(x=time30)) + 
+  geom_line(aes(y=data$predicted), color = "darkred") +
+  geom_line(aes(y=data$real), color="steelblue", linetype = "twodash")+
+  labs(title = "Tether's Market Cap Prediction", x = "days", y ="Market Cap")
 
+g
 
