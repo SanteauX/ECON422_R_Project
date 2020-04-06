@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1586109226217.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3762605346",
+    "id" : "D724D1A5",
+    "lastKnownWriteTime" : 1586123372,
+    "last_content_update" : 1586123372,
+    "path" : "D:/Desktop/ECON422_R_Project/Project/R_scripts/TestLasso.R",
+    "project_path" : "R_scripts/TestLasso.R",
+    "properties" : {
+        "cursorPosition" : "85,50",
+        "scrollLine" : "64"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

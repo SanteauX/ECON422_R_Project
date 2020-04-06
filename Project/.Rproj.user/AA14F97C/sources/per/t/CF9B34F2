@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1586035965138.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4040838208",
+    "id" : "CF9B34F2",
+    "lastKnownWriteTime" : 1586106603,
+    "last_content_update" : 1586106603228,
+    "path" : "D:/Desktop/ECON422_R_Project/Project/R_scripts/SVR_2.R",
+    "project_path" : "R_scripts/SVR_2.R",
+    "properties" : {
+        "cursorPosition" : "93,0",
+        "scrollLine" : "92",
+        "tempName" : "Untitled2"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

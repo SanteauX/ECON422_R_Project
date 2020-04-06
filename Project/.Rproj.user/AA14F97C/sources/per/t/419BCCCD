@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1586068524551.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2592504737",
+    "id" : "419BCCCD",
+    "lastKnownWriteTime" : 1586065060,
+    "last_content_update" : 1586065060,
+    "path" : "D:/Desktop/ECON422_R_Project/Project/R_scripts/Support Vector Regression.R",
+    "project_path" : "R_scripts/Support Vector Regression.R",
+    "properties" : {
+        "cursorPosition" : "14,23",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
